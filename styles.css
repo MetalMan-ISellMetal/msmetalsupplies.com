@@ -1,0 +1,704 @@
+/* ===========================
+   BASIC RESET & BODY
+=========================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: #ffffff;
+    color: #222;
+    line-height: 1.6;
+}
+
+/* ===========================
+   HEADER & LOGO
+=========================== */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background: #fff;
+    border-bottom: 1px solid #eee;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.logo-img {
+    width: 40px; /* # Logo size */
+    height: 40px;
+    object-fit: contain;
+    margin-right: 10px;
+}
+
+/* ===========================
+   NAVBAR
+=========================== */
+.navbar {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background: #111;
+    padding: 16px 30px;
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    border-bottom: 2px solid #444;
+    font-family: 'Poppins', sans-serif;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 10px 16px;
+    border-radius: 6px;
+    transition: 0.2s ease;
+}
+
+.navbar a:hover,
+.navbar a.active {
+    background: #25D366;
+    color: black;
+    transform: translateY(-2px);
+}
+
+/* ===========================
+   DROPDOWN MENU
+=========================== */
+.dropdown {
+    position: relative;
+    display: inline-block; /* fixed */
+}
+
+/* Button hover only triggers when mouse is on button */
+.dropbtn {
+    background: #222;
+    color: white;
+    font-weight: 600;
+    padding: 10px 16px;
+    border: 2px solid #444;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.dropbtn:hover {
+    background: #25D366;
+    color: black;
+    border-color: black;
+}
+
+/* Dropdown menu */
+.dropdown-content {
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    background-color: white;
+    min-width: 220px;
+    border-radius: 8px;
+    border: 2px solid black;
+    top: 48px;
+    box-shadow: 0 5px 12px rgba(0,0,0,0.15);
+    z-index: 999;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px;
+    text-decoration: none;
+    display: block;
+    font-weight: 500;
+    transition: background 0.2s ease, padding-left 0.2s ease;
+}
+
+.dropdown-content a:hover {
+    background: #f2f2f2;
+    padding-left: 18px;
+}
+
+/* Show dropdown with fade */
+.dropdown:hover .dropdown-content {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* ===========================
+   HERO SECTION
+=========================== */
+.hero {
+    text-align: center;
+    padding: 100px 20px;
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+}
+
+.hero h1 {
+    font-size: 48px;
+    font-weight: bold;
+    text-shadow: -2px -2px 0 #000,
+                  2px -2px 0 #000,
+                  -2px 2px 0 #000,
+                  2px 2px 0 #000,
+                  0 0 5px #000;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 20px;
+    font-weight: bold;
+    text-shadow: -2px -2px 0 #000,
+                  2px -2px 0 #000,
+                  -2px 2px 0 #000,
+                  2px 2px 0 #000,
+                  0 0 5px #000;
+    margin-bottom: 30px;
+}
+
+.cta {
+    display: inline-block;
+    padding: 12px 22px;
+    background: #25D366;
+    color: white;
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: 6px;
+    border: 2px solid #25D366;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.cta:hover {
+    transform: translateY(3px);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+
+/* ===========================
+   PRODUCTS SECTION
+=========================== */
+.product-wrapper {
+    display: flex;
+    gap: 30px;
+    margin-top: 40px;
+}
+
+/* Left category list */
+.product-categories {
+    width: 220px;
+    margin-left: 20px;
+}
+
+.product-categories ul {
+    list-style: none;
+    padding: 0;
+}
+
+.product-categories li {
+    padding: 12px 15px;
+    background: #f4f4f4;
+    margin-bottom: 8px;
+    border-radius: 6px;
+    cursor: pointer;
+    border: 1px solid #ddd;
+    transition: 0.25s;
+}
+
+.product-categories li:hover {
+    background: #e8e8e8;
+}
+
+.product-categories li.active {
+    background: #CED2D7;
+    color: white;
+    font-weight: bold;
+    border: none;
+}
+
+/* Right side product display */
+.product-display {
+    flex: 1;
+}
+
+.product-group {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.hidden { display: none; }
+
+/* Product cards */
+.card img {
+    width: 100%;
+    height: 270px;
+    object-fit: cover;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    margin-bottom: 10px;
+}
+
+.card:hover img {
+    transform: scale(1.05);
+    transition: transform 0.3s;
+}
+
+.card h3 {
+    margin-bottom: 5px;
+}
+
+.card p {
+    font-size: 14px;
+    color: #555;
+}
+
+/* ===========================
+   IMAGE VIEWER
+=========================== */
+.image-viewer {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.85);
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    cursor: pointer;
+}
+
+#image-container {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    max-width: 900px;
+}
+
+.gallery-img {
+    max-width: 280px;
+    border-radius: 8px;
+    border: 2px solid #fff;
+}
+
+/* IMAGE BOX FOR INFO PAGES */
+.img-box {
+    max-width: 1400px;          /* bigger viewing area */
+    margin: 50px auto;          /* more breathing room */
+    padding: 30px;              /* bigger internal padding */
+    background: #fafafa;
+    border-radius: 16px;
+    border: 1px solid #ddd;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.12);
+    display: flex;
+    justify-content: center;
+}
+
+/* Slightly limit image width for nice framing */
+.img-box img {
+    width: 95%;                 /* not glued to the box edges */
+    height: auto;
+    border-radius: 16px;
+}
+
+/* MULTIPLE IMAGES SIDE BY SIDE */
+.img-box.multi {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    padding: 35px;              /* same bigger padding */
+}
+
+.img-box.multi img {
+    width: calc(50% - 20px);
+    border-radius: 16px;
+}
+
+
+/* ===========================
+   ABOUT & CONTACT
+=========================== */
+.about, .contact {
+    padding: 60px 40px;
+    text-align: center;
+}
+
+.map-container {
+    margin-top: 20px;
+    width: 100%;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+}
+
+/* ===========================
+   WHATSAPP BUTTON
+=========================== */
+.whatsapp-btn {
+    display: inline-block;
+    padding: 14px 26px;
+    background: #25D366;
+    color: white;
+    border: 3px solid black;
+    border-radius: 8px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: transform 0.25s ease;
+    text-shadow: -1px -1px 0 #000,
+                 1px -1px 0 #000,
+                 -1px 1px 0 #000,
+                 1px 1px 0 #000;
+}
+
+.whatsapp-btn:hover {
+    transform: scale(1.05);
+}
+
+/* ===========================
+   PURCHASE INFO & TERMS
+=========================== */
+.purchase-info {
+    background: #f4f4f4;
+    padding: 40px;
+}
+
+.purchase-info h2 {
+    font-size: 23px;
+    margin-bottom: 20px;
+}
+
+.purchase-info-content {
+    max-width: 800px;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #444;
+}
+
+.purchase-info-content h3 {
+    margin-top: 18px;
+    margin-bottom: 8px;
+    font-size: 16px;
+    color: #333;
+}
+
+.purchase-info-content p {
+    margin-bottom: 6px;
+}
+
+/* ===========================
+   FADE ANIMATION
+=========================== */
+.fade-up {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ===========================
+   INFO PAGE CONTAINER FIX
+=========================== */
+.info-page {
+    padding: 60px 20px;       /* vertical 60px, horizontal 20px */
+    max-width: 1000px;        /* limits text width for readability */
+    margin: 0 auto;           /* centers the container */
+    display: flex;
+    flex-direction: column;   /* stacks text and images vertically */
+    gap: 40px;                /* space between sections */
+}
+
+.info-page img {
+    max-width: 100%;
+    height: auto;
+    display: block;           /* avoids inline spacing issues */
+    margin: 20px auto;        /* centers the image */
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.info-page p {
+    margin-bottom: 20px;      /* space between paragraphs */
+    line-height: 1.8;         /* improves readability */
+    text-align: justify;       /* makes edges aligned */
+    color: #333;
+    font-size: 16px;           /* readable for paragraphs */
+}
+
+.info-page h2 {
+    text-align: center;        /* headings centered */
+    margin-bottom: 30px;
+    font-weight: 700;
+    font-size: 28px;
+}
+
+.info-page h3 {
+    text-align: left;          /* subheadings left aligned */
+    margin-top: 20px;
+    margin-bottom: 12px;
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.content-wrapper {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    line-height: 1.7;
+}
+
+h1, h2, h3 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.section {
+    margin-bottom: 50px;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.section img {
+    width: 48%;
+    margin: 1%;
+    border-radius: 10px;
+}
+
+hr {
+    margin: 40px 0;
+    opacity: 0.4;
+}
+
+
+/* ===========================
+   IMAGE PLACEHOLDERS FOR SLIDING
+=========================== */
+.info-page .image-slot {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+    margin: 30px 0;
+}
+
+.info-page .image-slot img {
+    width: 280px;
+    height: auto;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 2px solid #ddd;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.info-page .image-slot img:hover {
+    transform: scale(1.05);
+}
+
+/* ===========================
+   FOOTER / REFERENCES SECTION
+=========================== */
+.reference-section {
+    background: #e5e5e5; /* light metallic gray */
+    padding: 12px 10px;
+    margin-top: 25px;
+    border-radius: 8px;
+    font-size: 0.9rem; /* slightly smaller font */
+    text-align: left;
+}
+
+.reference-section h3 {
+    text-align: left;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.reference-section ul {
+    padding-left: 20px;
+    margin: 0;
+}
+
+.reference-section li {
+    margin-bottom: 4px;
+}
+
+.disclaimer {
+    text-align: left;
+    margin-bottom: 15px;
+    font-style: italic;
+}
+
+.disclaimer-mini {
+    font-size: 0.75rem;
+    color: #666;
+    text-align: center;
+    margin-top: 40px;
+    padding: 10px;
+}
+
+.footer-text {
+    margin-top: 20px;
+    font-size: 0.8rem;
+    text-align: center;
+    color: #555;
+}
+
+/* Image row (two images side-by-side, responsive) */
+.image-row {
+    display: flex;
+    gap: 18px;
+    justify-content: center;
+    align-items: center;
+    margin: 18px 0 26px 0;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.image-row img {
+    width: calc(50% - 9px);
+    height: auto;
+    border-radius: 10px;
+    object-fit: cover;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    border: 1px solid #e6e6e6;
+}
+
+/* Table wrapper for horizontal scroll on small screens */
+.table-wrap {
+    max-width: 1000px;
+    margin: 20px auto 40px auto;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 6px;
+}
+
+/* Comparison table styling */
+.comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 15px;
+    background: #ffffff;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.comparison-table thead th {
+    background: linear-gradient(90deg, #f3f7fb, #eef3f8);
+    color: #163458; /* deep steel-blue header */
+    padding: 12px 14px;
+    text-align: left;
+    font-weight: 700;
+    border-bottom: 1px solid #e6e9ee;
+}
+
+.comparison-table tbody td {
+    padding: 12px 14px;
+    border-bottom: 1px solid #f1f3f6;
+    color: #333;
+    vertical-align: top;
+}
+
+/* Zebra subtle rows for readability */
+.comparison-table tbody tr:nth-child(odd) td {
+    background: #ffffff;
+}
+.comparison-table tbody tr:nth-child(even) td {
+    background: #fbfdff;
+}
+
+/* Make table compact on mobile */
+@media (max-width: 720px) {
+    .image-row {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .image-row img {
+        width: 100%;
+    }
+
+    .comparison-table thead {
+        display: none; /* hide header on very small screens for stacked layout */
+    }
+
+    .comparison-table, .comparison-table tbody, .comparison-table tr, .comparison-table td {
+        display: block;
+        width: 100%;
+    }
+
+    .comparison-table tr {
+        margin-bottom: 14px;
+        border-bottom: 2px solid #eee;
+        padding-bottom: 10px;
+    }
+
+    .comparison-table td {
+        padding-left: 14px;
+        position: relative;
+        padding-top: 8px;
+    }
+
+    /* show a pseudo-label for each cell on mobile */
+    .comparison-table td:before {
+        content: attr(data-label); /* we'll set these attributes below via JS or server-side if desired */
+        font-weight: 700;
+        display: block;
+        color: #163458;
+        margin-bottom: 6px;
+    }
+}
+
+.compare-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9rem;
+    background: #ffffff;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.compare-table th {
+    background: #e6eef7; /* subtle steel-blue tint */
+    text-align: left;
+    padding: 10px;
+    font-weight: bold;
+}
+
+.compare-table td {
+    padding: 10px;
+    border-bottom: 1px solid #dddddd;
+}
+
+.compare-table tr:last-child td {
+    border-bottom: none;
+}
+
+.compare-table tbody tr:nth-child(even) {
+    background: #f8f8f8;
+}
