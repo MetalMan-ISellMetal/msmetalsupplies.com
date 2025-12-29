@@ -777,7 +777,7 @@ header {
 }
 
 .navbar a {
-    color: #ffffff; /* Changed to dark for readability on white header */
+    color: #222; /* Changed to dark for readability on white header */
     text-decoration: none;
     font-weight: 600;
     padding: 8px 12px;
@@ -895,4 +895,5 @@ header {
     min-width: 600px; /* Prevents the table from squishing */
     width: 100%;
 }
+
 
