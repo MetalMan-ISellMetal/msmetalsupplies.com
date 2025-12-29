@@ -977,4 +977,40 @@ header {
   color: inherit !important; /* prefer inherited readable color */
 }
 
+/* ===== MOBILE INFO NAV BAR COLOR FIX ===== */
+@media (max-width: 768px) {
+
+    /* Navbar container background */
+    header {
+        background: #ffffff;
+    }
+
+    /* Navbar links readable on white */
+    .navbar a,
+    .dropbtn {
+        color: #111 !important;
+        background: transparent;
+    }
+
+    /* Hover / active state still green */
+    .navbar a:hover,
+    .navbar a.active,
+    .dropbtn:hover {
+        background: #25D366;
+        color: #000 !important;
+    }
+
+    /* Dropdown menu stays white with dark text */
+    .dropdown-content {
+        background: #ffffff;
+    }
+
+    .dropdown-content a {
+        color: #111;
+    }
+
+    .dropdown-content a:hover {
+        background: #f2f2f2;
+    }
+}
 
