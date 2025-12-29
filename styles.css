@@ -777,7 +777,7 @@ header {
 }
 
 .navbar a {
-    color: #222; /* Changed to dark for readability on white header */
+    color: inherit; /* Changed to dark for readability on white header */
     text-decoration: none;
     font-weight: 600;
     padding: 8px 12px;
@@ -1013,4 +1013,5 @@ header {
         background: #f2f2f2;
     }
 }
+
 
