@@ -896,4 +896,85 @@ header {
     width: 100%;
 }
 
+/* ===========================
+   UNIFIED NAV + INFO COLOUR FIX (paste at END of stylesheet)
+   - ensures consistent readable colours across pages & devices
+=========================== */
+
+/* Theme variables (optional but handy) */
+:root{
+  --nav-bg: #111;        /* navbar background */
+  --nav-link: #ffffff;   /* navbar link default */
+  --nav-hover-bg: #25D366; /* navbar hover/active bg */
+  --nav-hover-color: #000; /* navbar hover/active text */
+  --light-bg-text: #111; /* text used on light backgrounds */
+}
+
+/* Force consistent navbar look everywhere */
+.navbar {
+  background: var(--nav-bg) !important;
+}
+.navbar a {
+  color: var(--nav-link) !important;
+  text-decoration: none;
+}
+.navbar a:hover,
+.navbar a.active {
+  background: var(--nav-hover-bg) !important;
+  color: var(--nav-hover-color) !important;
+}
+
+/* Dropdown button: keep same hover rules as navbar */
+.dropbtn {
+  background: #222;
+  color: var(--nav-link);
+}
+.dropbtn:hover {
+  background: var(--nav-hover-bg);
+  color: var(--nav-hover-color);
+}
+
+/* Fix product category active contrast:
+   light background should show dark text — not white */
+.product-categories li.active {
+  background: #CED2D7 !important;
+  color: var(--light-bg-text) !important; /* dark text for contrast */
+  font-weight: bold;
+  border: none;
+}
+
+/* Info pages: if you have a page-specific header nav placed inside .info-page,
+   make sure links stay readable (this overrides any stray rules) */
+.info-page .navbar,
+.info-page header .navbar {
+  background: var(--nav-bg) !important;
+}
+.info-page .navbar a {
+  color: var(--nav-link) !important;
+}
+.info-page .navbar a:hover,
+.info-page .navbar a.active {
+  background: var(--nav-hover-bg) !important;
+  color: var(--nav-hover-color) !important;
+}
+
+/* Dropdown menu items should remain dark text on white background */
+.dropdown-content,
+.dropdown-content a {
+  background-color: #ffffff !important;
+  color: #111 !important;
+}
+
+/* Mobile tweaks — ensure consistent nav text on small screens */
+@media (max-width: 768px) {
+  .navbar { background: var(--nav-bg) !important; }
+  .navbar a { color: var(--nav-link) !important; }
+  .navbar a:hover, .navbar a.active { color: var(--nav-hover-color) !important; }
+}
+
+/* Extra safety: avoid accidental white-on-white for any element with class .active */
+.active {
+  color: inherit !important; /* prefer inherited readable color */
+}
+
 
